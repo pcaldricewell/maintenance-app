@@ -1,29 +1,4 @@
 export type WorkOrderStatus = "Open" | "In Progress" | "Done";
-export type WorkOrderPriority = "Low" | "Medium" | "High";
-
-export type WorkOrder = {
-  id: string;
-  title: string;
-  status: WorkOrderStatus;
-  priority: WorkOrderPriority;
-  dueDate?: string;
-  location?: string;
-  notes?: string;
-  createdAt: string;
-  updatedAt: string;
-};
-
-export function uid() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const c: any = globalThis.crypto;
-  if (c?.randomUUID) return c.randomUUID();
-  return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
-}
-
-export function isoNow() {
-  return new Date().toISOString();
-}
-export type WorkOrderStatus = "Open" | "In Progress" | "Done";
 export type Priority = "Low" | "Medium" | "High";
 
 export type WorkOrder = {
@@ -37,8 +12,8 @@ export type WorkOrder = {
 
   // Spreadsheet fields
   wtId?: string;
-  createdDate?: string | null;     // YYYY-MM-DD
-  laborStartDate?: string | null;  // YYYY-MM-DD
+  createdDate?: string | null;
+  laborStartDate?: string | null;
   wtPriorityRaw?: string | null;
 
   facilityNumber?: string | null;
@@ -55,3 +30,16 @@ export type WorkOrder = {
   createdAt: string;
   updatedAt: string;
 };
+
+// Optional helpers (safe to keep)
+export function uid() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const c: any = globalThis.crypto;
+  if (c?.randomUUID) return c.randomUUID();
+  return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+}
+
+export function isoNow() {
+  return new Date().toISOString();
+}
+
