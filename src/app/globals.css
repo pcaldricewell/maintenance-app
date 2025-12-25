@@ -90,4 +90,17 @@ textarea { resize: vertical; }
   background: #fff;
   font-size: 12px;
   font-weight: 800;
+}/* Action button colors */
+.btnBlue{
+  background: rgba(59,130,246,.14);
+  border-color: rgba(59,130,246,.40);
 }
+.btnAmber{
+  background: rgba(245,158,11,.14);
+  border-color: rgba(245,158,11,.40);
+}
+.btnGreen{
+  background: rgba(34,197,94,.14);
+  border-color: rgba(34,197,94,.40);
+}
+
