@@ -2,11 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 
+export const storageKeys = {
+  workOrders: "maint.workOrders",
+} as const;
+
 export function useLocalStorageState<T>(key: string, initialValue: T) {
   const [value, setValue] = useState<T>(initialValue);
   const hydrated = useRef(false);
 
-  // Load once on client
   useEffect(() => {
     try {
       const raw = window.localStorage.getItem(key);
@@ -18,7 +21,6 @@ export function useLocalStorageState<T>(key: string, initialValue: T) {
     }
   }, [key]);
 
-  // Save on change (after hydration)
   useEffect(() => {
     if (!hydrated.current) return;
     try {
@@ -30,10 +32,3 @@ export function useLocalStorageState<T>(key: string, initialValue: T) {
 
   return [value, setValue] as const;
 }
-
-export const storageKeys = {
-  workOrders: "maint.workOrders",
-  equipment: "maint.equipment",
-  vendors: "maint.vendors",
-  settings: "maint.settings",
-};
