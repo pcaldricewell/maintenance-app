@@ -2,8 +2,8 @@ export default function Home() {
   return (
     <main style={{ padding: 16, fontFamily: "system-ui" }}>
       <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <div>
-          <h1 style={{ fontSize: 24, fontWeight: 800, margin: 0 }}>Maintenance App</h1>
+        <div style={{ fontWeight: 950, fontSize: 16 }}>Maintenance App (until I get computer access)</div>
+
           <p style={{ margin: "6px 0 0", opacity: 0.75 }}>Quick actions + overview</p>
         </div>
         <span
